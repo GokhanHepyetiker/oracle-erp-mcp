@@ -1,0 +1,50 @@
+{
+  "name": "oracle-erp-mcp",
+  "version": "0.1.0",
+  "description": "A secure, read-only Model Context Protocol (MCP) server that lets AI assistants explore and report on Oracle-based ERP databases.",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "oracle-erp-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "config"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/sqlGuard.test.ts tests/reports.test.ts tests/server.test.ts",
+    "test:integration": "tsx --test tests/integration.test.ts",
+    "db:up": "docker compose up -d --wait",
+    "db:down": "docker compose down -v",
+    "inspector": "npx @modelcontextprotocol/inspector node dist/index.js"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "oracle",
+    "erp",
+    "plsql",
+    "ai-agent",
+    "llm"
+  ],
+  "author": "Gökhan Hepyetiker (https://github.com/GokhanHepyetiker)",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.0",
+    "oracledb": "^7.0.1",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.130",
+    "@types/oracledb": "^7.0.3",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3"
+  }
+}

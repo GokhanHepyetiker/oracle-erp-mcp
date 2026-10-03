@@ -1,0 +1,17 @@
+services:
+  oracle:
+    image: gvenzl/oracle-free:23-slim
+    container_name: oracle-erp-mcp-db
+    ports:
+      - "${ORACLE_PORT:-1521}:1521"
+    environment:
+      ORACLE_PASSWORD: ${ORACLE_SYS_PASSWORD:-OracleSys#2026}
+    volumes:
+      - ./docker/init:/container-entrypoint-initdb.d:ro
+    healthcheck:
+      # healthy only after the demo schema init scripts have finished
+      test: ["CMD-SHELL", "healthcheck.sh && test -f /tmp/erp_demo_ready"]
+      interval: 10s
+      timeout: 10s
+      retries: 60
+      start_period: 30s

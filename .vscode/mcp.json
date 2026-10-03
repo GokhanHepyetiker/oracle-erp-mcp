@@ -1,0 +1,15 @@
+{
+  "servers": {
+    "oracle-erp": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["${workspaceFolder}/dist/index.js"],
+      "env": {
+        "ORACLE_USER": "mcp_reader",
+        "ORACLE_PASSWORD": "McpReader#2026",
+        "ORACLE_CONNECT_STRING": "localhost:1521/FREEPDB1",
+        "ORACLE_SCHEMA": "ERP_DEMO"
+      }
+    }
+  }
+}

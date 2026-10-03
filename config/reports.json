@@ -1,0 +1,55 @@
+{
+  "reports": [
+    {
+      "name": "supplier_performance",
+      "title": "Supplier performance",
+      "description": "Purchase volume, average discount and delivery fulfilment per supplier and currency (cancelled orders excluded).",
+      "procedure": "ERP_DEMO.ERP_REPORTS.SUPPLIER_PERFORMANCE",
+      "parameters": [
+        { "name": "date_from", "type": "date", "description": "Order date from (inclusive)" },
+        { "name": "date_to", "type": "date", "description": "Order date to (inclusive)" }
+      ]
+    },
+    {
+      "name": "waste_paper_quality",
+      "title": "Waste paper quality by supplier",
+      "description": "Weighbridge (kantar) analysis: net vs payable weight, moisture and contamination deductions per supplier.",
+      "procedure": "ERP_DEMO.ERP_REPORTS.WASTE_PAPER_QUALITY",
+      "parameters": [
+        { "name": "date_from", "type": "date", "description": "Ticket date from (inclusive)" },
+        { "name": "date_to", "type": "date", "description": "Ticket date to (inclusive)" }
+      ]
+    },
+    {
+      "name": "stock_balance",
+      "title": "Stock balance and value",
+      "description": "Current stock quantity and value (standard cost, TRY) per warehouse and item.",
+      "procedure": "ERP_DEMO.ERP_REPORTS.STOCK_BALANCE",
+      "parameters": [
+        { "name": "warehouse_code", "type": "string", "description": "W01..W05; empty = all warehouses" },
+        {
+          "name": "category",
+          "type": "string",
+          "description": "RAW_MATERIAL, CHEMICAL, SEMI_FINISHED, FINISHED_GOOD or SPARE_PART; empty = all"
+        }
+      ]
+    },
+    {
+      "name": "production_scrap",
+      "title": "Production scrap analysis",
+      "description": "Scrap (fire) rate and plan attainment per machine and item for completed work orders.",
+      "procedure": "ERP_DEMO.ERP_REPORTS.PRODUCTION_SCRAP",
+      "parameters": [
+        { "name": "date_from", "type": "date", "description": "Completion date from (inclusive)" },
+        { "name": "date_to", "type": "date", "description": "Completion date to (inclusive)" }
+      ]
+    },
+    {
+      "name": "monthly_purchases",
+      "title": "Monthly purchase summary",
+      "description": "Number of purchase orders and net amount per month and currency.",
+      "procedure": "ERP_DEMO.ERP_REPORTS.MONTHLY_PURCHASES",
+      "parameters": [{ "name": "year", "type": "number", "description": "Calendar year; empty = all years" }]
+    }
+  ]
+}
